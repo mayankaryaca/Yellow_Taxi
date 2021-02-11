@@ -12,4 +12,10 @@
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
     <color name="black_overlay">#66000000</color>
+    <color name="header">#ffc40c</color>
+    <color name="top_android_bar">#ffcd36</color>
+    <color name="gradient_nav_top">#fada5e</color>
+    <color name="gradient_nav_mid">#f5c71a</color>
+    <color name="gradient_nav_end">#f0e130</color>
+
 </resources>
