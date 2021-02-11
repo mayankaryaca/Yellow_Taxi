@@ -18,7 +18,7 @@
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_home_screen"
-            android:theme="@style/Theme.YellowTaxi.Fullscreen" >
+            android:theme="@style/Theme.YellowTaxi.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
