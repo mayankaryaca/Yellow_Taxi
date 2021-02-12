@@ -25,8 +25,11 @@ public class YtSharedPreferences {
     }
 
     public boolean checkIfLoggedIn(){
-        setting = sharedPreferences.getString("username", "defaultValue");
-        Log.d("TAG",setting);
         return isLoggedIn;
+    }
+
+    public void logOutUser(){
+        editor.remove("logged");
+        editor.commit();
     }
 }

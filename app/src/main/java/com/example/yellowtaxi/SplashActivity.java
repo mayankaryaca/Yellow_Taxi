@@ -26,10 +26,11 @@ public class SplashActivity extends AppCompatActivity {
 
                 try {
                     if(isLoggedIn = true){
-                        Intent intent = new Intent(getApplicationContext(), MainScreen.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
                     }else{
+
                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                         finish();
