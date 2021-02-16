@@ -5,7 +5,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:id="@+id/btGoBack"
         android:visibility="gone"/>
 <Button

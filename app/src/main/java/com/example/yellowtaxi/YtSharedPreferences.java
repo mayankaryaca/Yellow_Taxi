@@ -8,7 +8,10 @@ import android.util.Log;
 public class YtSharedPreferences {
     private static SharedPreferences sharedPreferences;
     private static SharedPreferences.Editor editor;
-    private static boolean isLoggedIn = false;
+    private static String userId = null;
+    private static String username = null;
+    private static boolean isRememberMe = false;
+
     String setting;
 
     public YtSharedPreferences(Context context) {
@@ -17,19 +20,34 @@ public class YtSharedPreferences {
         editor = sharedPreferences.edit();
     }
 
-    public void saveLoginDetails(String username, String password, boolean rememberMe) {
-        editor.putString("username", username);
-        editor.putString("password", password);
-        editor.putBoolean("logged", rememberMe);
+    public void saveLoginDetails(boolean isRememberMe, String userId, String username) {
+        this.isRememberMe = isRememberMe;
+        this.userId = userId;
+        this.username = username;
+        editor.putString("username", this.username);
+        editor.putBoolean("rememberMe", this.isRememberMe);
+        editor.putString("userId", userId);
         editor.commit();
     }
 
-    public boolean checkIfLoggedIn(){
-        return isLoggedIn;
+
+    public boolean checkIsRememberMe() {
+        return sharedPreferences.getBoolean("rememberMe", false);
     }
 
-    public void logOutUser(){
-        editor.remove("logged");
+    public void logOutUser() {
+        editor.remove("username");
+        editor.remove("rememberMe");
+        editor.remove("userId");
         editor.commit();
     }
+
+    public String getUserId() {
+        return sharedPreferences.getString("userId", "");
+    }
+
+    public String getUsername() {
+        return sharedPreferences.getString("username", "");
+    }
+
 }

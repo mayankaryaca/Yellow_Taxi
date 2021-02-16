@@ -10,22 +10,22 @@ import android.os.Handler;
 
 public class SplashActivity extends AppCompatActivity {
     private Handler delayHandler = new Handler();
-    private boolean isLoggedIn = false;
+    private boolean isRememberMe = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        YtSharedPreferences ytSharedPreferences = new YtSharedPreferences(this);
-        isLoggedIn = ytSharedPreferences.checkIfLoggedIn();
+        YtSharedPreferences ytSharedPreferences = new YtSharedPreferences(getApplicationContext());
+        isRememberMe = ytSharedPreferences.checkIsRememberMe();
         delayHandler.postDelayed(new Runnable() {
 
             @Override
             public void run() {
 
                 try {
-                    if(isLoggedIn = true){
+                    if(isRememberMe){
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();

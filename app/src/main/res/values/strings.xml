@@ -1,28 +1,20 @@
 <resources>
     <string name="app_name">Yellow Taxi</string>
     <string name="title_activity_home_screen">Yellow Taxi</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_main_screen">MainScreen</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_attraction_list">Attractions List</string>
-    <string name="menu_logout">Log Out</string>
     <string name="username">Username</string>
     <string name="enter_username">Enter Username</string>
     <string name="password">Password</string>
     <string name="enter_password">Enter Password</string>
     <string name="remember_me">Remember me</string>
     <string name="login">Login</string>
-    <string name="sign_up">Sign Up</string>
     <string name="tagline">tourist attractions around the city</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="log_out">Log Out</string>
+    <string name="phone">Phone</string>
+    <string name="website">Website</string>
+    <string name="ticket">Ticket</string>
+    <string name="description">Description</string>
+    <string name="rate_destination">Rate destination</string>
+    <string name="go_back">Go Back</string>
+    <string name="save_rating">Save Rating</string>
 </resources>
