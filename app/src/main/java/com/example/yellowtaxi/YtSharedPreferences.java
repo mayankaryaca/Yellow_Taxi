@@ -12,8 +12,6 @@ public class YtSharedPreferences {
     private static String username = null;
     private static boolean isRememberMe = false;
 
-    String setting;
-
     public YtSharedPreferences(Context context) {
         sharedPreferences = context.getSharedPreferences(String.valueOf(R.string.app_name),
                 Context.MODE_PRIVATE);
@@ -47,7 +45,10 @@ public class YtSharedPreferences {
     }
 
     public String getUsername() {
-        return sharedPreferences.getString("username", "");
+        String sharedPreferencesUsername = sharedPreferences.getString("username", "");
+        String[] splitUsername = sharedPreferencesUsername.split("@");
+        String mainUsername = splitUsername[0];
+        return mainUsername;
     }
 
 }

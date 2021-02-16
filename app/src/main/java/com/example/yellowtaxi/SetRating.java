@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.RatingBar;
 
 public class SetRating extends AppCompatActivity {
-    String key = null;
-    YtSharedPreferences ytSharedPreferences = null;
+   private String key = null;
+   private YtSharedPreferences ytSharedPreferences = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +25,12 @@ public class SetRating extends AppCompatActivity {
         btnGoBack.setVisibility(View.VISIBLE);
         Intent intent = getIntent();
         key = intent.getStringExtra("key");
+
+
         btnSaveRating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float rating = Float.parseFloat(String.valueOf(ratingBar.getRating()));
+                double rating = ratingBar.getRating();
                 FileModifier fileModifier = new FileModifier(getApplicationContext());
                 String respopnse = fileModifier.initializeReadJSON();
                 fileModifier.appendRatingJSON(key, rating, respopnse);
@@ -38,6 +40,8 @@ public class SetRating extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
         btnLogOut.setText("LogOut  " + ytSharedPreferences.getUsername());
         btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override

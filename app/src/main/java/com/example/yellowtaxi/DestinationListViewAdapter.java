@@ -15,14 +15,16 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 public class DestinationListViewAdapter extends ArrayAdapter<Destination> {
-Context context;
+    private Context context;
+
     public DestinationListViewAdapter(@NonNull Context context, int resource, @NonNull List<Destination> objects) {
         super(context, resource, objects);
         this.context = context;
     }
+
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Destination destination = getItem(position);      // getItem = built in function from ArrayAdapter parent class
+        Destination destination = getItem(position);
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_view_template, parent, false);
@@ -32,14 +34,12 @@ Context context;
         TextView dAddress = convertView.findViewById(R.id.id_destination_address);
         ImageView dImage = convertView.findViewById(R.id.id_destination_image);
 
-        // associate the labels with the properties of the animal
         dName.setText(destination.getName());
         dAddress.setText(destination.getAddress());
 
-        String imageLoc = String.valueOf(destination.getPic_main());
-
+        String pic_main = String.valueOf(destination.getPic_main());
         DrawableManager drawableManager = new DrawableManager(context);
-        Drawable d= drawableManager.getDrawable(imageLoc);
+        Drawable d = drawableManager.getDrawable(pic_main);
 
         dImage.setImageDrawable(d);
 

@@ -16,6 +16,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
 public class FileModifier {
     private static final String FILE_NAME = "destination_details";
     private File file = null;
@@ -24,7 +25,7 @@ public class FileModifier {
     private BufferedReader bufferedReader = null;
     private BufferedWriter bufferedWriter = null;
     private String response = null;
-    private Context context = null;
+    private Context context ;
 
     //constructor to get context and retrive file
     public FileModifier(Context context) {
@@ -51,9 +52,9 @@ public class FileModifier {
                         "    \"extra_pics_3\": \"destination1_3\",\n" +
                         "    \"extra_pics_4\": \"destination1_4\",\n" +
                         "    \"description\": \"The Statue of Liberty Enlightening the World was a gift of friendship from the people of France to the United States and is recognized as a universal symbol of freedom and democracy. The Statue of Liberty was dedicated on October 28, 1886.  It was designated as a National Monument in 1924.  Employees of the National Park Service have been caring for the colossal copper statue since 1933.\",\n" +
-                        "    \"price\": \"12\",\n" +
-                        "    \"ratingUser1\": \"0\",\n" +
-                        "    \"ratingUser2\": \"0\"\n" +
+                        "    \"price\": 12,\n" +
+                        "    \"ratingUser1\": 0,\n" +
+                        "    \"ratingUser2\": 0\n" +
                         "  },\n" +
                         "  \"destination2\": {\n" +
                         "    \"name\": \"Central Park\",\n" +
@@ -66,9 +67,9 @@ public class FileModifier {
                         "    \"extra_pics_3\": \"destination2_3\",\n" +
                         "    \"extra_pics_4\": \"destination2_4\",\n" +
                         "    \"description\": \"Central Park, largest and most important public park in Manhattan, New York City. It occupies an area of 840 acres (340 hectares) and extends between 59th and 110th streets (about 2.5 miles [4 km]) and between Fifth and Eighth avenues (about 0.5 miles [0.8 km]). It was one of the first American parks to be developed using landscape architecture techniques.\",\n" +
-                        "    \"price\": \"0\",\n" +
-                        "    \"ratingUser1\": \"0\",\n" +
-                        "    \"ratingUser2\": \"0\"\n" +
+                        "    \"price\": 0,\n" +
+                        "    \"ratingUser1\": 0,\n" +
+                        "    \"ratingUser2\": 0\n" +
                         "  },\n" +
                         "  \"destination3\": {\n" +
                         "    \"name\": \"Rockefeller Center\",\n" +
@@ -81,9 +82,9 @@ public class FileModifier {
                         "    \"extra_pics_3\": \"destination3_3\",\n" +
                         "    \"extra_pics_4\": \"destination3_4\",\n" +
                         "    \"description\": \"Located in the heart of Midtown, Rockefeller Center is an Art Deco complex composed of 19 grand buildings. It's home to a network of businesses, television studios, shopping and dining choices as well as stunning artwork and architecture.\",\n" +
-                        "    \"price\": \"25\",\n" +
-                        "    \"ratingUser1\": \"0\",\n" +
-                        "    \"ratingUser2\": \"0\"\n" +
+                        "    \"price\": 25,\n" +
+                        "    \"ratingUser1\": 0,\n" +
+                        "    \"ratingUser2\": 0\n" +
                         "  },\n" +
                         "  \"destination4\": {\n" +
                         "    \"name\": \"The Metropolitian Museum of Art\",\n" +
@@ -96,9 +97,9 @@ public class FileModifier {
                         "    \"extra_pics_3\": \"destination4_3\",\n" +
                         "    \"extra_pics_4\": \"destination4_4\",\n" +
                         "    \"description\": \"The Metropolitan Museum of Art collects, studies, conserves, and presents significant works of art across all times and cultures in order to connect people to creativity, knowledge, and ideas.\",\n" +
-                        "    \"price\": \"12\",\n" +
-                        "    \"ratingUser1\": \"0\",\n" +
-                        "    \"ratingUser2\": \"0\"\n" +
+                        "    \"price\": 12,\n" +
+                        "    \"ratingUser1\": 0,\n" +
+                        "    \"ratingUser2\": 0\n" +
                         "  },\n" +
                         "  \"destination5\": {\n" +
                         "    \"name\": \"Times Square\",\n" +
@@ -111,9 +112,9 @@ public class FileModifier {
                         "    \"extra_pics_3\": \"destination5_3\",\n" +
                         "    \"extra_pics_4\": \"destination5_4\",\n" +
                         "    \"description\": \"Times Square is a major commercial intersection, tourist destination, entertainment center, and neighborhood in the Midtown Manhattan section of New York City, at the junction of Broadway and Seventh Avenue. Brightly lit by numerous billboards and advertisements, it stretches from West 42nd to West 47th Streets, and is sometimes referred to as the Crossroads of the World, the Center of the Universe, the heart of the Great White Way and the heart of the world\",\n" +
-                        "    \"price\": \"0\",\n" +
-                        "    \"ratingUser1\": \"0\",\n" +
-                        "    \"ratingUser2\": \"0\"\n" +
+                        "    \"price\": 0,\n" +
+                        "    \"ratingUser1\": 0,\n" +
+                        "    \"ratingUser2\": 0\n" +
                         "  }\n" +
                         "}");
                 bufferedWriter.close();
@@ -143,7 +144,7 @@ public class FileModifier {
 
 
     //saving user selected rating value into jsonobject
-    public void appendRatingJSON(String destinationKey, float ratingValue, String response) {
+    public void appendRatingJSON(String destinationKey, double ratingValue, String response) {
         try {
             JSONObject jsonObject = new JSONObject(response);
             Boolean isUserExisting = jsonObject.has(destinationKey);

@@ -16,13 +16,13 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
-    String username = null;
-    String password = null;
-    CheckBox cbRememberMe;
-    ArrayList<User> users = new ArrayList<User>();
-    YtSharedPreferences ytSharedPreferences = null;
-    Boolean isUserNameCorrect = false;
-    Boolean isPasswordCorrect = false;
+   private String username = null;
+   private String password = null;
+   private CheckBox cbRememberMe;
+   private ArrayList<User> users = new ArrayList<User>();
+   private YtSharedPreferences ytSharedPreferences = null;
+   private Boolean isUserNameCorrect = false;
+   private Boolean isPasswordCorrect = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +32,10 @@ public class LoginActivity extends AppCompatActivity {
         EditText etUsername = findViewById(R.id.etUsername);
         EditText etPassword = findViewById(R.id.etPassword);
         cbRememberMe = findViewById(R.id.cbRememberMe);
+
         users.add(new User("thanos@gmail.com", "1234", "User1"));
         users.add(new User("wonderwoman@yahoo.com", "abc!!", "User2"));
+
         ytSharedPreferences = new YtSharedPreferences(this);
 
         btLogin.setOnClickListener(new View.OnClickListener() {

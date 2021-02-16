@@ -19,20 +19,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AttractionDetails extends AppCompatActivity {
-    String name = null;
-    String website = null;
-    String phone = null;
-    String description = null;
-    String extra_pics_1 = null;
-    String extra_pics_2 = null;
-    String extra_pics_3 = null;
-    String extra_pics_4 = null;
-    int price = 0;
-    float rating = 0;
-
+    private String name = null;
+    private String website = null;
+    private String phone = null;
+    private String description = null;
+    private String extra_pics_1 = null;
+    private String extra_pics_2 = null;
+    private String extra_pics_3 = null;
+    private String extra_pics_4 = null;
+    private int price = 0;
+    private double rating = 0;
     private static JSONObject destinationDataObject = null;
     private static String key = null;
-    YtSharedPreferences ytSharedPreferences = null;
+    private YtSharedPreferences ytSharedPreferences = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +68,12 @@ public class AttractionDetails extends AppCompatActivity {
         if (price == 0) {
             tvTicket.setText("Free entry");
         } else {
-            tvTicket.setText("$" + String.valueOf(price));
+            tvTicket.setText("$ " + String.valueOf(price));
         }
         tvDescription.setText(description);
         tvWebsite.setText(website);
 
-        ratingBar.setRating(rating);
+        ratingBar.setRating((float) rating);
         btnBack.setVisibility(View.VISIBLE);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -152,10 +151,7 @@ public class AttractionDetails extends AppCompatActivity {
             extra_pics_3 = destinationDataObject.getString("extra_pics_3");
             extra_pics_4 = destinationDataObject.getString("extra_pics_4");
             String userId = ytSharedPreferences.getUserId();
-            String ratingValue = destinationDataObject.getString("rating" + userId);
-
-
-            rating = Float.parseFloat(String.valueOf(ratingValue));
+            rating = destinationDataObject.getDouble("rating" + userId);
         } catch (JSONException e) {
             e.printStackTrace();
         }

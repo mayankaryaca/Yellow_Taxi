@@ -9,7 +9,6 @@ public class DrawableManager {
 
     public DrawableManager(Context context) {
         this.context = context;
-
     }
 
 
