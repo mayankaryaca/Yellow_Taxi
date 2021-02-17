@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
     }
 
     //Loading data from file

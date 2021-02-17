@@ -42,7 +42,6 @@ public class AttractionDetails extends AppCompatActivity {
         key = intent.getStringExtra("key");
         refreshData(key);
 
-
         TextView tvHeading = findViewById(R.id.id_heading);
         TextView tvPhone = findViewById(R.id.id_phone);
         TextView tvWebsite = findViewById(R.id.id_website);
@@ -51,7 +50,6 @@ public class AttractionDetails extends AppCompatActivity {
         RatingBar ratingBar = findViewById(R.id.id_rating);
         Button btnLogout = findViewById(R.id.btLogOut);
         Button btnBack = findViewById(R.id.btGoBack);
-
 
         ImageView iv_extra_pics_1 = findViewById(R.id.id_extra_pics_1);
         ImageView iv_extra_pics_2 = findViewById(R.id.id_extra_pics_2);
@@ -82,13 +80,10 @@ public class AttractionDetails extends AppCompatActivity {
                 String respopnse = fileModifier.initializeReadJSON();
                 fileModifier.appendRatingJSON(key, newRating, respopnse);
                 Toast.makeText(getApplicationContext(), "Rating changed : "+rating, Toast.LENGTH_SHORT).show();
-
             }
         });
 
-
         btnBack.setVisibility(View.VISIBLE);
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,17 +120,10 @@ public class AttractionDetails extends AppCompatActivity {
         tvPhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: " + phone));
-
-                // Check if an Activity exists to perform this action.
-                PackageManager pm = getPackageManager();
-                ComponentName cn = intent.resolveActivity(pm);
-                if (cn == null) {
-                    Toast.makeText(getApplicationContext(), "Calling function is not available at the moment", Toast.LENGTH_SHORT).show();
-                } else
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData( Uri.parse("tel: " + phone));
                     startActivity(intent);
             }
-
         });
 
         tvWebsite.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +133,6 @@ public class AttractionDetails extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 
     public void refreshData(String key) {
