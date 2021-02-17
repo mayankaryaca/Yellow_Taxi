@@ -81,7 +81,7 @@ public class AttractionDetails extends AppCompatActivity {
                 FileModifier fileModifier = new FileModifier(getApplicationContext());
                 String respopnse = fileModifier.initializeReadJSON();
                 fileModifier.appendRatingJSON(key, newRating, respopnse);
-                Toast.makeText(getApplicationContext(), "Rating changed!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Rating changed : "+rating, Toast.LENGTH_SHORT).show();
 
             }
         });
