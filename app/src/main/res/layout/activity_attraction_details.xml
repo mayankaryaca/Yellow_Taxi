@@ -154,17 +154,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
-                android:isIndicator="true"
+                android:nestedScrollingEnabled="true"
                 android:numStars="5"
                 android:stepSize="0.1" />
-            <!--                android:onClick="onRatingClick"-->
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="onRatingClick"
-                android:text="@string/rate_destination" />
-
             <include
                 layout="@layout/log_out_button"
                 android:layout_width="match_parent"

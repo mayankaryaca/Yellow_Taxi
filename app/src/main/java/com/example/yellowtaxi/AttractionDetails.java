@@ -74,6 +74,19 @@ public class AttractionDetails extends AppCompatActivity {
         tvWebsite.setText(website);
 
         ratingBar.setRating((float) rating);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                double newRating = ratingBar.getRating();
+                FileModifier fileModifier = new FileModifier(getApplicationContext());
+                String respopnse = fileModifier.initializeReadJSON();
+                fileModifier.appendRatingJSON(key, newRating, respopnse);
+                Toast.makeText(getApplicationContext(), "Rating changed!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
         btnBack.setVisibility(View.VISIBLE);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -160,10 +173,4 @@ public class AttractionDetails extends AppCompatActivity {
     }
 
 
-    public void onRatingClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), SetRating.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        intent.putExtra("key", key);
-        startActivity(intent);
-    }
 }
