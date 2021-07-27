@@ -1,9 +1,8 @@
 ## :books: Yellow Taxi
-MADS
 
-Sample user -
-
-Username - thanos@gmail.com Password - 1234
+Sample user :
+Username - thanos@gmail.com 
+Password - 1234
 
 ## :gear: Funcionalities
 
